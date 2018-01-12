@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "~font-awesome/css/font-awesome.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~admin-lte/dist/css/AdminLTE.min.css";
+@import "~admin-lte/dist/css/skins/skin-blue.min.css";
+
+*/
+.logo {
+    background-color: #fff !important;
+}
+
+.navbar {
+    background-color: #4882c3 !important;
+}
+
+li.user-header {
+    background-color: #4882c3 !important;
+}
+/*
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    color: white !important;
+    background-color: #4882c3 !important;
+}
+
+.skin-blue .sidebar a{
+    color: white !important;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    background-color: #245d9c !important;
+    color: white !important;
+}
+*/
+.logo:hover{
+    background-color: white !important;
+}
+
+.tmp:hover{
+    background:  none !important;
+}
+/*
+.sidebar-menu>li.active>a{
+    border-left-color: white !important;
+}
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a{
+    background-color: #d0b865 !important;
+}
+
+.sidebar-menu>li>.treeview-menu{
+    background-color: #e0ce9b !important;
+}
+
+.treeview-menu>li>a{
+    color: white !important;
+}*/
+
+.user-panel>.image>img {
+	height: 45px;
+}
+/*
+.skin-blue .sidebar-menu .treeview-menu>li.active>a, .skin-blue .sidebar-menu .treeview-menu>li>a:hover{
+    color: #927a28 !important;
+}*/
+
+
+.contenedor-iframe {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.url-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,11 @@
+<adm-framework>
+  <!-- Top header -->
+  <adm-header>
+    <adm-header-user [user]="loginUser"></adm-header-user>
+  </adm-header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <adm-sidebar>
+    <adm-sidebar-treeview [showLoader]="showLoader" [user]="loginUser" [items]="treeViewItems" [personalItems]="personalTreeView"></adm-sidebar-treeview>
+  </adm-sidebar>
+</adm-framework>

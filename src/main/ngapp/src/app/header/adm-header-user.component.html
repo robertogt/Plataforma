@@ -1,0 +1,25 @@
+<!-- User Account: style can be found in dropdown.less -->
+<li adm-dropdown class="user user-menu" style="cursor:pointer">
+
+  <a adm-dropdown-toggle >
+    <img src="{{user.imgUrl}}" class="user-image" alt="User Image">
+    <span class="hidden-xs">{{user.usuario}}</span>
+  </a>
+  <ul adm-dropdown-menu>
+    <!-- User image -->
+    <li class="user-header">
+      <img src="{{user.imgUrl}}" class="img-circle" alt="User Image">
+
+      <p>
+        {{user.nombreEmpleado}} - {{user.puestoEmpleado}}
+        <small>{{user.fechaAlta}}</small>
+      </p>
+    </li>
+    <!-- Menu Footer-->
+    <li class="user-footer">
+      <div class="pull-right">
+        <a href="/Plataforma/j_security_check" class="btn btn-default btn-flat">Salir</a>
+      </div>
+    </li>
+  </ul>
+</li>

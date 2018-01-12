@@ -1,0 +1,110 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+<adm-sidebar-user [user]="user"></adm-sidebar-user>
+<spinner-component [spinnerShow]="showLoader">
+            <div class="sk-circle">
+                <div class="sk-circle1 sk-child"></div>
+                <div class="sk-circle2 sk-child"></div>
+                <div class="sk-circle3 sk-child"></div>
+                <div class="sk-circle4 sk-child"></div>
+                <div class="sk-circle5 sk-child"></div>
+                <div class="sk-circle6 sk-child"></div>
+                <div class="sk-circle7 sk-child"></div>
+                <div class="sk-circle8 sk-child"></div>
+                <div class="sk-circle9 sk-child"></div>
+                <div class="sk-circle10 sk-child"></div>
+                <div class="sk-circle11 sk-child"></div>
+                <div class="sk-circle12 sk-child"></div>
+              </div>
+            </spinner-component>
+<ul class="sidebar-menu">
+  <li class="header" *ngIf="personalItems != null && personalItems != undefined && personalItems.length > 0">Menu Personal</li>
+  <ng-container *ngFor="let item of personalItems">
+
+    <!--treeview item-->
+    <ng-container *ngIf="item.type === 'treeview'" [ngTemplateOutlet]="itemTemplatePersonal"
+                  [ngOutletContext]="{item:item, itemClass:'treeview'}"></ng-container>
+
+  </ng-container>
+  <!--header item-->
+  <li class="header" *ngIf="items != null && items != undefined && items.length > 0">Menu Principal</li>
+  <ng-container *ngFor="let item of items">
+
+    <!--treeview item-->
+    <ng-container *ngIf="item.type === 'treeview'" [ngTemplateOutlet]="itemTemplate"
+                  [ngOutletContext]="{item:item, itemClass:'treeview'}"></ng-container>
+
+  </ng-container>
+</ul>
+
+<ng-template #itemTemplate let-item="item" let-itemClass="itemClass">
+
+  <li [ngClass]="{active:item.isActive}" class="{{itemClass}}" (click)="onClick($event,item)">
+
+    <a *ngIf="item.hoja == 0" style="cursor: pointer;">
+      <i [ngClass]="getLeftIcon(item)"><img *ngIf="item.leftIcon == 'fa'" [src]="item.imgIcon" width="20px" height="20px"></i>
+      <span style="white-space:pre-line; margin-right: 7%;">{{item.etiqueta}}</span>
+      <span class="pull-right-container">
+       <!-- <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>-->
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
+    </a>
+    <a *ngIf="item.hoja == 1" (click)="viewUrl(item)" style="cursor: pointer;">
+      <i [ngClass]="getLeftIcon(item)"></i>
+      <span style="white-space:pre-line;margin-right: 3%;">{{item.etiqueta}}</span>
+      <span class="pull-right-container">
+       <!-- <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>-->
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
+    </a>
+
+    <ul *ngIf="item.data" class="treeview-menu"
+        [@treeItemAnimation]="item.isActive ? 'slideDown' : 'slideUp'">
+
+      <!-- Recursive all children! -->
+      <ng-container *ngFor="let child of item.data" [ngTemplateOutlet]="itemTemplate"
+                    [ngOutletContext]="{item:child}"></ng-container>
+    </ul>
+
+  </li>
+
+</ng-template>
+
+<ng-template #itemTemplatePersonal let-item="item" let-itemClass="itemClass">
+
+  <li [ngClass]="{active:item.isActive}" class="{{itemClass}}" (click)="onClickPersonal($event,item)">
+
+    <a *ngIf="item.hoja == 0" style="cursor: pointer;">
+      <i [ngClass]="getLeftIcon(item)"><img *ngIf="item.leftIcon == 'fa'" [src]="item.imgIcon" width="20px" height="20px"></i>
+      <span style="white-space:pre-line; margin-right: 7%;">{{item.etiqueta}}</span>
+      <span class="pull-right-container">
+       <!-- <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>-->
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
+    </a>
+    <a *ngIf="item.hoja == 1" (click)="viewUrl(item)" style="cursor: pointer;">
+      <i [ngClass]="getLeftIcon(item)"></i>
+      <span style="white-space:pre-line;margin-right: 3%;">{{item.etiqueta}}</span>
+      <span class="pull-right-container">
+       <!-- <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>-->
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
+    </a>
+
+    <ul *ngIf="item.data" class="treeview-menu"
+        [@treeItemAnimation]="item.isActive ? 'slideDown' : 'slideUp'">
+
+      <!-- Recursive all children! -->
+      <ng-container *ngFor="let child of item.data" [ngTemplateOutlet]="itemTemplatePersonal"
+                    [ngOutletContext]="{item:child}"></ng-container>
+    </ul>
+
+  </li>
+
+</ng-template>
+
+  </section>
+</aside>
+
+<adm-content [stringUrl]="stringUrl"></adm-content>
